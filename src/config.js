@@ -1,5 +1,5 @@
 export const CLUB_CONFIG = {
-    nombre: "Fleck", 
+    nombre: "FLECK", 
     direccion: "Av. Principal 123, Mendoza",
     telefono: "5492612704469",
     
