@@ -564,54 +564,45 @@ function App() {
                 </div>
 
                 <div id="seccion-mapa" className="scroll-mt-20">
-                  <h2 className="text-3xl font-bold mb-6 text-gray-800 dark:text-white">Donde estamos</h2>
-                  <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                    <div className="md:col-span-3 lg:col-span-2 w-full bg-white dark:bg-slate-800 h-[400px] rounded-xl shadow overflow-hidden relative border border-gray-200 dark:border-slate-700">
+                  <h2 className="text-3xl font-bold mb-6 text-gray-800 dark:text-white">Información</h2>
+                  
+                  {/* Fila de Tarjetas Informativas (3 columnas) */}
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
+                    {/* 1. Tarjeta Horarios */}
+                      <TarjetaHorarios />
 
-                      {!mostrarMapaDesktop ? (
-                        // ESTADO INICIAL: Muestra una imagen o placeholder ligero
-                        <div className="w-full h-full flex flex-col items-center justify-center bg-gray-100 dark:bg-slate-700/50">
-                          <p className="text-gray-500 dark:text-gray-400 mb-4 font-medium">La carga del mapa consume datos</p>
-                          <button
-                            onClick={() => setMostrarMapaDesktop(true)}
-                            className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-xl font-bold shadow-lg transition-transform active:scale-95 flex items-center gap-2"
-                          >
-                            🗺️ Cargar Mapa Interactivo
-                          </button>
-                        </div>
-                      ) : (
-                        // ESTADO ACTIVO: Carga el mapa real pesado
-                        <Map
-                          initialViewState={{
-                            longitude: -68.863624,
-                            latitude: -32.852333,
-                            zoom: 15
-                          }}
-                          className="w-full h-full"
-                        />
-                      )}
-                    </div>
+                    {/* 2. Tarjeta Servicios */}
+                      <TarjetaServicios />
 
-                    <div className="space-y-4 md:col-span-3 lg:col-span-1">
-                      <div className="bg-white dark:bg-slate-800 p-6 rounded-xl border border-gray-200 dark:border-slate-700 transition-colors shadow-sm flex flex-col justify-between h-full">
-                        <div>
-                          <h3 className="font-bold mb-4 dark:text-white text-lg">Ubicación</h3>
-                          <p className="text-gray-600 dark:text-gray-300 mb-6">{CLUB_CONFIG.direccion}</p>
-                        </div>
-                        <a
-                          href="https://www.google.com/maps/dir/?api=1&destination=-32.852333,-68.863624"
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="w-full bg-blue-100 hover:bg-blue-200 text-blue-700 dark:bg-blue-900/30 dark:hover:bg-blue-900/50 dark:text-blue-300 py-3 rounded-lg font-bold flex items-center justify-center gap-2 transition-colors mt-auto"
-                        >
-                          Ver en Google Maps
-                        </a>
+                    {/* 3. Tarjeta Ubicación (Extraída del panel lateral anterior) */}
+                    <div className="bg-white dark:bg-slate-800 rounded-xl shadow-sm border border-gray-200 dark:border-slate-700 p-6 mb-4 transition-colors justify-between flex flex-col">
+                      <div>
+                        <h3 className="font-bold mb-4 dark:text-white text-lg">Ubicación</h3>
+                        <p className="text-gray-600 dark:text-gray-300 mb-6">{CLUB_CONFIG.direccion}</p>
                       </div>
-                      <div className="grid grid-cols-2 lg:grid-cols-1 gap-4">
-                        <TarjetaHorarios />
-                        <TarjetaServicios />
-                      </div>
+                      <a
+                        href="https://www.google.com/maps/dir/?api=1&destination=-32.852333,-68.863624"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="w-full bg-blue-100 hover:bg-blue-200 text-blue-700 dark:bg-blue-900/30 dark:hover:bg-blue-900/50 dark:text-blue-300 py-3 rounded-lg font-bold flex items-center justify-center gap-2 transition-colors"
+                      >
+                        Ver en Google Maps
+                      </a>
                     </div>
+                  </div>
+
+                  {/* Fila del Mapa (Ancho completo) */}
+                  <div className="w-full bg-white dark:bg-slate-800 h-[400px] rounded-xl shadow overflow-hidden relative border border-gray-200 dark:border-slate-700">
+                    
+                      <Map
+                        initialViewState={{
+                          longitude: -68.863624,
+                          latitude: -32.852333,
+                          zoom: 15
+                        }}
+                        className="w-full h-full"
+                      />
+                    )
                   </div>
                 </div>
               </div>

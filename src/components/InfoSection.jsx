@@ -1,25 +1,16 @@
 import { TarjetaHorarios, TarjetaServicios } from './InfoCards'
 import { Map } from './ui/map' // Import normal
 import { CLUB_CONFIG } from '../config'
-import { useState } from 'react'
 
 export default function InfoSection() {
-    const [mostrarMapaMovil, setMostrarMapaMovil] = useState(false) // <--- ESTADO LOCAL
     return (
         <div className="space-y-6">
             <div className="bg-white dark:bg-slate-800 rounded-xl shadow-sm border border-gray-200 dark:border-slate-700 p-6 mb-4 transition-colors">
                 <h3 className="font-bold text-gray-800 dark:text-white text-lg mb-4">Ubicación</h3>
                 
                 {/* Contenedor del Mapa OPTIMIZADO */}
-                <div className="h-[200px] w-full rounded-lg overflow-hidden border border-gray-100 mb-4 bg-gray-100 dark:bg-slate-800 relative">
+                <div className="h-[200px] w-full rounded-lg overflow-hidden mb-4 bg-gray-100 dark:bg-slate-800 relative">
                     
-                    {!mostrarMapaMovil ? (
-                        <div className="w-full h-full flex items-center justify-center bg-gray-100 dark:bg-slate-700/50 cursor-pointer" onClick={() => setMostrarMapaMovil(true)}>
-                            <button className="bg-white dark:bg-slate-800 text-blue-600 dark:text-blue-400 px-4 py-2 rounded-lg font-bold text-sm shadow border border-gray-200 dark:border-slate-600">
-                                👆 Toca para ver el mapa
-                            </button>
-                        </div>
-                    ) : (
                         <Map 
                             initialViewState={{
                                 longitude: -68.863624, 
@@ -28,12 +19,12 @@ export default function InfoSection() {
                             }}
                             className="w-full h-full"
                         />
-                    )}
+                    )
 
                 </div>
 
                 <p className="text-sm text-gray-600 flex items-center gap-2 dark:text-white mb-4">
-                    <span>📍</span> {CLUB_CONFIG.direccion}
+                    <svg className="w-4 h-4 text-blue-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg>  {CLUB_CONFIG.direccion}
                 </p>
 
                 <a 
@@ -42,7 +33,7 @@ export default function InfoSection() {
                     rel="noopener noreferrer"
                     className="w-full block text-center bg-blue-600 text-white py-3 rounded-xl font-bold shadow-md hover:bg-blue-700 active:scale-95 transition-all"
                 >
-                    📍 Cómo llegar con GPS
+                    Ir a Google Maps
                 </a>
 
             </div>
