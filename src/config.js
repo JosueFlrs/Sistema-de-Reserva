@@ -1,5 +1,5 @@
 export const CLUB_CONFIG = {
-    nombre: "Locos x el Futbol", 
+    nombre: "Fleck", 
     direccion: "Av. Principal 123, Mendoza",
     telefono: "5492612704469",
     
