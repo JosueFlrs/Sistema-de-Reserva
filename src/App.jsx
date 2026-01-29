@@ -516,7 +516,7 @@ function App() {
                   <div className="flex border-b border-gray-200 dark:border-slate-700 p-2 items-center justify-between">
                     <div className="flex items-center gap-4 px-4">
                       <img src={CLUB_CONFIG.emoji} alt="Estadio" className="w-9 h-9 object-cover" />
-                      <span className="font-bold text-lg dark:text-white">Wally</span>
+                      <span className="font-bold text-lg dark:text-white">Calendario</span>
                     </div>
                     <div className="flex items-center gap-4">
                       <button onClick={() => setDiaIndex(Math.max(0, diaIndex - 1))} className="text-2xl hover:text-blue-600 text-gray-400 dark:text-gray-500">{'<'}</button>
