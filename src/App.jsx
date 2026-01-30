@@ -217,7 +217,7 @@ function App() {
                   <h2 className="text-lg font-bold text-gray-800 dark:text-white mb-2">3. Selecciona una cancha</h2>
                   {canchas.filter(c => !estaOcupada(c.id, horaFiltroMovil)).map(c => (
                     <div key={c.id} className="bg-white dark:bg-slate-800 rounded-xl shadow-sm border border-gray-200 dark:border-slate-700 p-4 transition-colors">
-                      <div className="flex justify-between mb-4"><div><h3 className="font-bold text-lg text-gray-800 dark:text-white">{c.nombre}</h3><p className="text-xs text-gray-400">Sintético | Cubierta</p></div><div className="text-right"><span className="block font-bold text-blue-600 dark:text-blue-400 text-lg">{c.precio_hora} Bs</span></div></div>
+                      <div className="flex justify-between mb-4"><div><h3 className="font-bold text-lg text-gray-800 dark:text-white">{c.nombre}</h3><p className="text-xs text-gray-400">Sintético | Cubierta</p></div><div className="text-right"><span className="block font-bold text-blue-600 dark:text-blue-400 text-lg">{c.precio_hora} Ars</span></div></div>
                       <button onClick={() => { setSeleccion({ canchaId: c.id, hora: horaFiltroMovil, precio: c.precio_hora, nombre: c.nombre }); iniciarReserva({ canchaId: c.id, hora: horaFiltroMovil, precio: c.precio_hora, nombre: c.nombre }); }} className="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-lg font-bold shadow active:scale-95">CONFIRMAR</button>
                     </div>
                   ))}
@@ -289,7 +289,7 @@ function App() {
           <div className="fixed bottom-0 left-0 right-0 bg-white dark:bg-slate-800 border-t border-blue-500 shadow-[0_-5px_30px_rgba(0,0,0,0.15)] p-4 animate-slide-up z-50 rounded-t-[30px] md:rounded-none transition-colors hidden md:block">
             <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
               <div className="flex items-center gap-4 w-full md:w-auto"><div className="text-left"><div className="text-xs text-gray-500 dark:text-gray-400 font-bold uppercase tracking-wider">Cancha</div><div className="font-bold text-gray-800 dark:text-white text-lg">{seleccion.nombre}</div></div><div className="h-8 w-px bg-gray-300 dark:bg-slate-600"></div><div className="text-left"><div className="text-xs text-gray-500 dark:text-gray-400 font-bold uppercase tracking-wider">Hora</div><div className="font-bold text-gray-800 dark:text-white text-lg">{seleccion.hora}</div></div></div>
-              <button onClick={() => iniciarReserva(seleccion)} className="bg-blue-600 hover:bg-blue-700 text-white w-full md:w-auto px-8 py-3 rounded-lg font-bold text-lg shadow-lg flex justify-center items-center gap-2">Continuar - {seleccion.precio} Bs</button>
+              <button onClick={() => iniciarReserva(seleccion)} className="bg-blue-600 hover:bg-blue-700 text-white w-full md:w-auto px-8 py-3 rounded-lg font-bold text-lg shadow-lg flex justify-center items-center gap-2">Continuar - {seleccion.precio} Ars</button>
             </div>
           </div>
         )}
